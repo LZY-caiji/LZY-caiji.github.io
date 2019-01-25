@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="problem给一颗树，边有边权。求经过的边权积为完全平方数的路径条数。 $n&amp;lt;1e5,a_i&amp;lt;1e8$ solutionemm 可以看出要用点分治。 可是桶不好开。 所以要考虑转换。 我们可以将任意一个数X这样表示。 $X = p_1^{a_1} p_2^{a_2}p_3^{a_3}……$ p为质数。 然后我们给所有$p_i$赋一个随机值$h(p_i)$。 定义F(X) 为所有 $a">
+<meta name="description" content="problem给一颗树，边有边权。求经过的边权积为完全平方数的路径条数。 $n&amp;lt;1e5,a_i&amp;lt;1e8$">
 <meta name="keywords" content="点分治,树">
 <meta property="og:type" content="article">
 <meta property="og:title" content="UOJ最强跳蚤Solution">
 <meta property="og:url" content="http://yoursite.com/2019/01/25/UOJ最强跳蚤Solution/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="problem给一颗树，边有边权。求经过的边权积为完全平方数的路径条数。 $n&amp;lt;1e5,a_i&amp;lt;1e8$ solutionemm 可以看出要用点分治。 可是桶不好开。 所以要考虑转换。 我们可以将任意一个数X这样表示。 $X = p_1^{a_1} p_2^{a_2}p_3^{a_3}……$ p为质数。 然后我们给所有$p_i$赋一个随机值$h(p_i)$。 定义F(X) 为所有 $a">
+<meta property="og:description" content="problem给一颗树，边有边权。求经过的边权积为完全平方数的路径条数。 $n&amp;lt;1e5,a_i&amp;lt;1e8$">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-01-25T12:23:16.845Z">
+<meta property="og:updated_time" content="2019-01-25T12:53:30.186Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="UOJ最强跳蚤Solution">
-<meta name="twitter:description" content="problem给一颗树，边有边权。求经过的边权积为完全平方数的路径条数。 $n&amp;lt;1e5,a_i&amp;lt;1e8$ solutionemm 可以看出要用点分治。 可是桶不好开。 所以要考虑转换。 我们可以将任意一个数X这样表示。 $X = p_1^{a_1} p_2^{a_2}p_3^{a_3}……$ p为质数。 然后我们给所有$p_i$赋一个随机值$h(p_i)$。 定义F(X) 为所有 $a">
+<meta name="twitter:description" content="problem给一颗树，边有边权。求经过的边权积为完全平方数的路径条数。 $n&amp;lt;1e5,a_i&amp;lt;1e8$">
 
 
 
@@ -202,9 +202,41 @@
       
 
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            Search
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
   
 </nav>
 
@@ -302,24 +334,25 @@
       
         <h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a>problem</h2><p>给一颗树，边有边权。求经过的边权积为完全平方数的路径条数。</p>
 <p>$n&lt;1e5,a_i&lt;1e8$</p>
+<a id="more"></a>
 <h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><p>emm</p>
 <p>可以看出要用点分治。</p>
 <p>可是桶不好开。</p>
 <p>所以要考虑转换。</p>
 <p>我们可以将任意一个数X这样表示。</p>
-<p>$X = p_1^{a_1} <em>p_2^{a_2}</em>p_3^{a_3}……$</p>
-<p>p为质数。</p>
-<p>然后我们给所有$p_i$赋一个随机值$h(p_i)$。</p>
-<p>定义F(X) 为所有 $a_i为奇数的h(p_i)的异或和$</p>
+<p>$X = p_1^{a_1}* p_2^{a_2} * p_3^{a_3}$ ……</p>
+<p>$p$ 为质数。</p>
+<p>然后我们给所有$p_i$ 赋一个随机值$h(p_i)$。</p>
+<p>定义 $F(X)$ 为所有 $a_i为奇数的h(p_i)的异或和$</p>
 <p>所以，我们可以得到。</p>
-<p>当且仅当F(x) = 0时，x为完全平方数。</p>
-<p>所以我们可以把A，B两数的积用F(A)⨁F(B)表示，因为我们仅需要知道一个数是否为完全平方数。</p>
+<p>当且仅当 $F(x) = 0$ 时，$x$ 为完全平方数。</p>
+<p>所以我们可以把 $A,B$ 两数的积用 $F(A)\oplus F(B)$ 表示，因为我们仅需要知道一个数是否为完全平方数。</p>
 <p>然后这题就完了。</p>
 <p>好吧，还有一些细节。</p>
-<p>比如$h(p_i)$的随机值要是long long范围的。这样才能保证正确性。</p>
-<p>还有，因为$a_i&lt;1e8$不能用线性筛，所以我们要筛出1e4以内的质数，然后对所有数用$\frac {\sqrt a_i}{\ln n}$的复杂度算出F($a_i$)。</p>
-<p>还有一点很重要，桶不能用map，只能用hash。</p>
-<p>先上一份自己打的，但是被hack数据卡T了的代码：</p>
+<p>比如 $h(p_i)$ 的随机值要是 $long~long$ 范围的。这样才能保证正确性。</p>
+<p>还有，因为 $a_i&lt;1e8$ 不能用线性筛，所以我们要筛出 $1e4$ 以内的质数，然后对所有数用 $\frac {\sqrt a_i}{\ln n}$ 的复杂度算出 $F(a_i)$ 。</p>
+<p>还有一点很重要，桶不能用 $map$ ，只能用 $hash$ 。</p>
+<p>先上一份自己打的，但是被 $hack$ 数据卡T了的代码：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> GCC optimize(2)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> G++ optimize(2)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> GCC optimize(3)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> G++ optimize(3)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> fst first</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> snd second</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> SZ(u) ((int) (u).size())</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ALL(u) (u).begin(), (u).end()</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt; <span class="function"><span class="keyword">inline</span> <span class="keyword">bool</span> <span class="title">chkmin</span><span class="params">(T &amp;a, <span class="keyword">const</span> T &amp;b)</span> </span>&#123; <span class="keyword">return</span> a &gt; b ? a = b, <span class="number">1</span> : <span class="number">0</span>; &#125;</span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt; <span class="function"><span class="keyword">inline</span> <span class="keyword">bool</span> <span class="title">chkmax</span><span class="params">(T &amp;a, <span class="keyword">const</span> T &amp;b)</span> </span>&#123; <span class="keyword">return</span> a &lt; b ? a = b, <span class="number">1</span> : <span class="number">0</span>; &#125;</span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt; <span class="function"><span class="keyword">inline</span> T <span class="title">read</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	register T sum(0), fg(1);</span><br><span class="line">	<span class="function"><span class="keyword">register</span> <span class="keyword">char</span> <span class="title">ch</span><span class="params">(getchar())</span></span>;</span><br><span class="line">	<span class="keyword">for</span>(; !<span class="built_in">isdigit</span>(ch); ch = getchar()) <span class="keyword">if</span>(ch == <span class="string">'-'</span>) fg = <span class="number">-1</span>;</span><br><span class="line">	<span class="keyword">for</span>(;  <span class="built_in">isdigit</span>(ch); ch = getchar()) sum = (sum &lt;&lt; <span class="number">3</span>) + (sum &lt;&lt; <span class="number">1</span>) - <span class="number">48</span> + ch;</span><br><span class="line">	<span class="keyword">return</span> sum * fg;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> LL;</span><br><span class="line"><span class="keyword">typedef</span> pair&lt;<span class="keyword">int</span>, LL&gt; pii;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> Maxn = <span class="number">1e5</span> + <span class="number">10</span>, Maxv = <span class="number">1e4</span> + <span class="number">10</span>, mod = <span class="number">2333333</span>;</span><br><span class="line"><span class="built_in">vector</span> &lt;pii&gt; Map[Maxn];</span><br><span class="line"><span class="built_in">unordered_map</span> &lt;LL, LL&gt; mp,book;</span><br><span class="line"><span class="keyword">int</span> pre[Maxn], top, Top, siz[Maxn], n;</span><br><span class="line"><span class="keyword">bool</span> vis[Maxn],bk[Maxn + <span class="number">10</span>];</span><br><span class="line"><span class="keyword">long</span> <span class="keyword">long</span> p[Maxn] ,del[Maxn], pre_rand[Maxn + <span class="number">10</span>], stk[Maxn], ans;</span><br><span class="line"><span class="function">LL <span class="title">Rand</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> res = rand(),res2 = rand();</span><br><span class="line">	LL tmp = <span class="number">1l</span>l * res * res2;</span><br><span class="line">	<span class="keyword">while</span>(tmp &lt;= <span class="number">0</span>) &#123;</span><br><span class="line">		<span class="keyword">if</span>(res &gt; res2) swap(res,res2);</span><br><span class="line">		res = rand();</span><br><span class="line">		tmp = <span class="number">1l</span>l * res * res2;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> tmp;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">vector</span>&lt;pii&gt; h[mod + <span class="number">10</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">ask</span><span class="params">(LL number)</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> now = number % mod;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = h[now].size() - <span class="number">1</span>;i &gt;= <span class="number">0</span>; --i)&#123;</span><br><span class="line">		<span class="keyword">if</span>(h[now][i].snd == number)</span><br><span class="line">			<span class="keyword">return</span> h[now][i].fst;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(LL number, <span class="keyword">int</span> d)</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> now = number % mod;</span><br><span class="line">	<span class="keyword">bool</span> fl = <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = h[now].size() - <span class="number">1</span>;i &gt;= <span class="number">0</span>; --i)&#123;</span><br><span class="line">		<span class="keyword">if</span>(h[now][i].snd == number)</span><br><span class="line">			h[now][i].fst += d,fl = <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(fl)h[now].push_back((pii)&#123;d,number&#125;);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span></span>&#123;</span><br><span class="line">	srand(<span class="number">19260817</span>);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>;i &lt;= Maxv; ++i)&#123;</span><br><span class="line">		<span class="keyword">if</span>(!bk[i])&#123;</span><br><span class="line">			pre[++Top] = i;</span><br><span class="line">			pre_rand[Top] = Rand();</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> j = i &lt;&lt; <span class="number">1</span>; j &lt;= Maxv; j += i) bk[j] = <span class="number">1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">div_siz</span><span class="params">(<span class="keyword">int</span> now, <span class="keyword">int</span> pa)</span></span>&#123;</span><br><span class="line">	siz[now] = <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = Map[now].size() - <span class="number">1</span>; i &gt;= <span class="number">0</span>; --i)&#123;</span><br><span class="line">		<span class="keyword">int</span> nxt = Map[now][i].fst;</span><br><span class="line">		<span class="keyword">if</span>(vis[nxt] || nxt == pa)<span class="keyword">continue</span>;</span><br><span class="line">		div_siz(nxt, now);</span><br><span class="line">		siz[now] += siz[nxt];</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">div_rt</span><span class="params">(<span class="keyword">int</span> now,<span class="keyword">int</span> pa, <span class="keyword">int</span> tot_siz)</span></span>&#123;</span><br><span class="line">	<span class="keyword">bool</span> fg = <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = Map[now].size() - <span class="number">1</span>; i &gt;= <span class="number">0</span>; --i)&#123;</span><br><span class="line">		<span class="keyword">int</span> nxt = Map[now][i].fst;</span><br><span class="line">		<span class="keyword">if</span>(vis[nxt] || nxt == pa)<span class="keyword">continue</span>;</span><br><span class="line">		<span class="keyword">int</span> p = div_rt(nxt,now,tot_siz);</span><br><span class="line">		<span class="keyword">if</span>(p) <span class="keyword">return</span> p;</span><br><span class="line">		<span class="keyword">if</span>((siz[nxt] &lt;&lt; <span class="number">1</span>) &gt; tot_siz) fg = <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>((tot_siz - siz[now] &lt;&lt; <span class="number">1</span>) &gt; tot_siz) fg = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">if</span>(fg) <span class="keyword">return</span> now;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">LL <span class="title">get_p</span><span class="params">(<span class="keyword">int</span> number)</span></span>&#123;</span><br><span class="line">	LL res = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= Top &amp;&amp; pre[i] &lt;= number; ++i)&#123;</span><br><span class="line">		<span class="keyword">while</span>(number % pre[i] == <span class="number">0</span>)&#123;</span><br><span class="line">			res ^= pre_rand[i];</span><br><span class="line">			number /= pre[i];</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span> (number &gt; <span class="number">1</span>)&#123;</span><br><span class="line">		<span class="keyword">if</span> (!mp[number])&#123; </span><br><span class="line">			mp[number] = Rand();</span><br><span class="line">		&#125;</span><br><span class="line">		res ^= mp[number];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">get_dis</span><span class="params">(<span class="keyword">int</span> now, <span class="keyword">int</span> pa)</span></span>&#123;</span><br><span class="line">	stk[++top] = p[now];</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = Map[now].size() - <span class="number">1</span>; i &gt;= <span class="number">0</span>; --i)&#123;</span><br><span class="line">		<span class="keyword">int</span> nxt = Map[now][i].fst;</span><br><span class="line">		<span class="keyword">if</span>(vis[nxt] || nxt == pa)<span class="keyword">continue</span>;</span><br><span class="line">		p[nxt] = p[now] ^ Map[now][i].snd;</span><br><span class="line">		get_dis(nxt, now);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">calc</span><span class="params">(<span class="keyword">int</span> now)</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> tot = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = Map[now].size() - <span class="number">1</span>; i &gt;= <span class="number">0</span>; --i)&#123;</span><br><span class="line">		<span class="keyword">int</span> nxt = Map[now][i].fst;</span><br><span class="line">		<span class="keyword">if</span>(vis[nxt]) <span class="keyword">continue</span>;</span><br><span class="line">		top = <span class="number">0</span>;</span><br><span class="line">		p[nxt] = Map[now][i].snd;</span><br><span class="line">		get_dis(nxt, now);</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= top; ++j)&#123;</span><br><span class="line">			ans += ask(stk[j]);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= top; ++j)</span><br><span class="line">			add(stk[j], <span class="number">1</span>), del[++tot] = stk[j];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= tot; ++i)</span><br><span class="line">		add(del[i], <span class="number">-1</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">div_solve</span><span class="params">(<span class="keyword">int</span> now)</span></span>&#123;</span><br><span class="line">	div_siz(now, <span class="number">0</span>), now = div_rt(now, <span class="number">0</span>, siz[now]), calc(now);</span><br><span class="line">	vis[now] = <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = Map[now].size() - <span class="number">1</span>; i &gt;= <span class="number">0</span>; --i)&#123;</span><br><span class="line">		<span class="keyword">int</span> nxt = Map[now][i].fst;</span><br><span class="line">		<span class="keyword">if</span>(!vis[nxt]) div_solve(nxt);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> ONLINE_JUDGE</span></span><br><span class="line">	freopen(<span class="string">"a.in"</span>, <span class="string">"r"</span>, <span class="built_in">stdin</span>);</span><br><span class="line">	freopen(<span class="string">"a.out"</span>, <span class="string">"w"</span>, <span class="built_in">stdout</span>);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line">	n = read&lt;<span class="keyword">int</span>&gt;();</span><br><span class="line">	init();</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; ++i)&#123;</span><br><span class="line">		<span class="keyword">int</span> x = read&lt;<span class="keyword">int</span>&gt;(), y = read&lt;<span class="keyword">int</span>&gt;(), w = read&lt;<span class="keyword">int</span>&gt;();</span><br><span class="line">		LL w0 = get_p(w);</span><br><span class="line">		Map[x].push_back((pii)&#123;y, w0&#125;);</span><br><span class="line">		Map[y].push_back((pii)&#123;x, w0&#125;);</span><br><span class="line">	&#125;</span><br><span class="line">	add(<span class="number">0</span>,<span class="number">1</span>);</span><br><span class="line">	div_solve(<span class="number">1</span>);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%lld\n"</span>,<span class="number">2l</span>l * ans);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>这份代码，卡了半年常，就是卡不过。</p>
 <p>后来把手写哈希换成hash_table就过了。</p>
@@ -678,6 +711,323 @@
 
   
 
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
 
 
 
@@ -692,6 +1042,28 @@
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
 
   
 
