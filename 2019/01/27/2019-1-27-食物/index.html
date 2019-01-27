@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="背包,">
 
 
 
@@ -86,14 +86,18 @@
 
 
 
+<meta name="description" content="The article has been encrypted, please enter your password to view.">
+<meta name="keywords" content="背包">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2019-1-27-食物">
 <meta property="og:url" content="http://yoursite.com/2019/01/27/2019-1-27-食物/index.html">
 <meta property="og:site_name" content="LZY_caiji">
+<meta property="og:description" content="The article has been encrypted, please enter your password to view.">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-01-27T12:15:05.385Z">
+<meta property="og:updated_time" content="2019-01-27T13:13:26.844Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="2019-1-27-食物">
+<meta name="twitter:description" content="The article has been encrypted, please enter your password to view.">
 
 
 
@@ -335,7 +339,20 @@
       
 
       
-        
+        <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+<div id="hbe-security">
+  <div class="hbe-input-container">
+  <input type="password" class="hbe-form-control" id="pass" placeholder="Please enter the password to read the blog.">
+    <label for="pass">Please enter the password to read the blog.</label>
+    <div class="bottom-line"></div>
+  </div>
+</div>
+<div id="decryptionError" style="display: none;">Incorrect Password!</div>
+<div id="noContentError" style="display: none;">No content to display!</div>
+<div id="encrypt-blog" style="display:none">
+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
+</div>
+<script src="/lib/crypto-js.js"></script><script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">
       
     </div>
     
@@ -349,6 +366,12 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/背包/" rel="tag"># 背包</a>
+          
+        </div>
       
 
       
@@ -448,7 +471,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>
@@ -1032,6 +1055,26 @@
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 
