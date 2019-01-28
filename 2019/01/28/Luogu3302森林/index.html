@@ -73,7 +73,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="主席树,启发式合并,">
 
 
 
@@ -84,14 +84,18 @@
 
 
 
+<meta name="description" content="Problem题目传送门 给你一片森林。 支持两个操作。 1,查询x，y路径中点权的k小。 2,连接x，y.保证连接之后仍然是一片森林。 询问强制在线。 $n,m,t&amp;lt;8×10^4$">
+<meta name="keywords" content="主席树,启发式合并">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Luogu3302森林">
 <meta property="og:url" content="http://yoursite.com/2019/01/28/Luogu3302森林/index.html">
 <meta property="og:site_name" content="LZY_caiji">
+<meta property="og:description" content="Problem题目传送门 给你一片森林。 支持两个操作。 1,查询x，y路径中点权的k小。 2,连接x，y.保证连接之后仍然是一片森林。 询问强制在线。 $n,m,t&amp;lt;8×10^4$">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-01-28T09:04:58.792Z">
+<meta property="og:updated_time" content="2019-01-28T11:33:30.610Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Luogu3302森林">
+<meta name="twitter:description" content="Problem题目传送门 给你一片森林。 支持两个操作。 1,查询x，y路径中点权的k小。 2,连接x，y.保证连接之后仍然是一片森林。 询问强制在线。 $n,m,t&amp;lt;8×10^4$">
 
 
 
@@ -358,7 +362,24 @@
       
 
       
-        
+        <h1 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h1><p><a href="https://www.luogu.org/problemnew/show/P3302" target="_blank" rel="noopener">题目传送门</a></p>
+<p>给你一片森林。</p>
+<p>支持两个操作。</p>
+<p>1,查询x，y路径中点权的k小。</p>
+<p>2,连接x，y.保证连接之后仍然是一片森林。</p>
+<p>询问强制在线。</p>
+<p>$n,m,t&lt;8×10^4$</p>
+<a id="more"></a>
+<h1 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h1><h4 id="链上第k小参考以前的博客：戳我"><a href="#链上第k小参考以前的博客：戳我" class="headerlink" title="链上第k小参考以前的博客：戳我"></a>链上第k小参考以前的博客：<a href="https://lzy-caiji.github.io/2019/01/26/Luogu-Count-on-a-tree/" target="_blank" rel="noopener">戳我</a></h4><p>现在只要考虑如何连接两个点。</p>
+<p>难道要用<strong>LCT？</strong></p>
+<p>对不起，本caiji还没有学会这么高级的数据结构。</p>
+<p>观察没有删除操作。</p>
+<p>然后：启发式合并。</p>
+<p>每次合并，选择较小的树，遍历一遍，重新继承主席树信息就可以了。</p>
+<p>注意，空间开大一点。</p>
+<p><del>xunzhen看题1分钟的结论，我想了一个小时都想不出。</del></p>
+<h1 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> DEBUG(...) fprintf(stderr, __VA_ARGS__)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> mp make_pair</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> fst first</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> snd second</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt; <span class="function"><span class="keyword">inline</span> <span class="keyword">bool</span> <span class="title">chkmin</span><span class="params">(T &amp;a, <span class="keyword">const</span> T &amp;b)</span> </span>&#123; <span class="keyword">return</span> a &gt; b ? a = b, <span class="number">1</span> : <span class="number">0</span>; &#125;</span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt; <span class="function"><span class="keyword">inline</span> <span class="keyword">bool</span> <span class="title">chkmax</span><span class="params">(T &amp;a, <span class="keyword">const</span> T &amp;b)</span> </span>&#123; <span class="keyword">return</span> a &lt; b ? a = b, <span class="number">1</span> : <span class="number">0</span>; &#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">read</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> res = <span class="number">0</span>, fl = <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">char</span> r = getchar();</span><br><span class="line">	<span class="keyword">for</span> (; !<span class="built_in">isdigit</span>(r); r = getchar()) <span class="keyword">if</span>(r == <span class="string">'-'</span>) fl = <span class="number">-1</span>;</span><br><span class="line">	<span class="keyword">for</span> (; <span class="built_in">isdigit</span>(r); r = getchar()) res = (res &lt;&lt; <span class="number">3</span>) + (res &lt;&lt; <span class="number">1</span>) + r - <span class="number">48</span>;</span><br><span class="line">	<span class="keyword">return</span> res * fl;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> LL;</span><br><span class="line"><span class="keyword">typedef</span> pair&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; pii;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> Maxn = <span class="number">8e4</span> + <span class="number">10</span>;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">SGT</span>&#123;</span></span><br><span class="line">	<span class="keyword">int</span> ls,rs,sum;</span><br><span class="line">&#125;tre[Maxn &lt;&lt; <span class="number">9</span>];</span><br><span class="line"><span class="keyword">int</span> val[Maxn], fa[Maxn][<span class="number">17</span>], cnt, dep[Maxn];</span><br><span class="line"><span class="keyword">int</span> num, root[Maxn &lt;&lt; <span class="number">9</span>], B[Maxn], f[Maxn], siz[Maxn];</span><br><span class="line"><span class="built_in">vector</span> &lt;<span class="keyword">int</span>&gt; g[Maxn];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">LCA</span><span class="params">(<span class="keyword">int</span> u,<span class="keyword">int</span> v)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(dep[u] &lt; dep[v]) swap(u, v);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">16</span>; i &gt;= <span class="number">0</span> ; --i) <span class="keyword">if</span>(dep[fa[u][i]] &gt;= dep[v]) u = fa[u][i];</span><br><span class="line">	<span class="keyword">if</span>(u == v) <span class="keyword">return</span> u;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">16</span>; i &gt;= <span class="number">0</span> ; --i) <span class="keyword">if</span>(fa[u][i] != fa[v][i]) u = fa[u][i], v = fa[v][i];</span><br><span class="line">	<span class="keyword">return</span> fa[u][<span class="number">0</span>];</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">build</span><span class="params">(<span class="keyword">int</span> &amp;rt,<span class="keyword">int</span> grt,<span class="keyword">int</span> l,<span class="keyword">int</span> r,<span class="keyword">int</span> pos)</span></span>&#123;</span><br><span class="line">	tre[rt = ++cnt] = tre[grt];</span><br><span class="line">	tre[rt].sum++;</span><br><span class="line">	<span class="keyword">if</span>(l == r) <span class="keyword">return</span>;</span><br><span class="line">	<span class="keyword">int</span> mid = l + r &gt;&gt; <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">if</span>(pos &lt;= mid) build(tre[rt].ls, tre[grt].ls, l, mid, pos);</span><br><span class="line">	<span class="keyword">else</span> build(tre[rt].rs, tre[grt].rs, mid + <span class="number">1</span>, r, pos);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Query</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b,<span class="keyword">int</span> c,<span class="keyword">int</span> d,<span class="keyword">int</span> l,<span class="keyword">int</span> r,<span class="keyword">int</span> k)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(l == r) <span class="keyword">return</span> B[l];</span><br><span class="line">	<span class="keyword">int</span> mid = l + r &gt;&gt; <span class="number">1</span>, t = tre[tre[a].ls].sum + tre[tre[b].ls].sum - tre[tre[c].ls].sum - tre[tre[d].ls].sum;</span><br><span class="line">	<span class="keyword">if</span>(k &lt;= t) <span class="keyword">return</span> Query(tre[a].ls, tre[b].ls, tre[c].ls, tre[d].ls, l, mid, k);</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">return</span> Query(tre[a].rs, tre[b].rs, tre[c].rs, tre[d].rs, mid + <span class="number">1</span>, r, k - t);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> now, <span class="keyword">int</span> pa)</span></span>&#123;</span><br><span class="line">	dep[now] = dep[pa] + <span class="number">1</span>;</span><br><span class="line">	fa[now][<span class="number">0</span>] = pa;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">16</span>; ++i) fa[now][i] = fa[fa[now][i - <span class="number">1</span>]][i - <span class="number">1</span>];</span><br><span class="line">	build(root[now],root[pa], <span class="number">1</span>, num, val[now]);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = g[now].size() - <span class="number">1</span>; i &gt;= <span class="number">0</span>; --i)&#123;</span><br><span class="line">		<span class="keyword">int</span> nxt = g[now][i];</span><br><span class="line">		<span class="keyword">if</span>(nxt == pa) <span class="keyword">continue</span>;</span><br><span class="line">		dfs(nxt, now);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">get_fa</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(f[x] == x) <span class="keyword">return</span> x;</span><br><span class="line">	<span class="keyword">return</span> f[x] = get_fa(f[x]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">link</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y,<span class="keyword">int</span> opt)</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> fx = get_fa(x), fy = get_fa(y);</span><br><span class="line">	<span class="keyword">if</span> (fx == fy) <span class="keyword">return</span>;</span><br><span class="line">	<span class="keyword">if</span> (siz[fx] &lt; siz[fy])</span><br><span class="line">		swap(fx,fy), swap(x,y);</span><br><span class="line">	<span class="keyword">if</span> (opt) &#123;</span><br><span class="line">		g[x].push_back(y);</span><br><span class="line">		g[y].push_back(x);</span><br><span class="line">		dfs(y, x);</span><br><span class="line">	&#125;</span><br><span class="line">	f[fy] = fx ,siz[fx] += siz[fy];</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">int</span> m)</span></span>&#123;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i) B[i] = val[i] = read();</span><br><span class="line">	sort(B + <span class="number">1</span>, B + <span class="number">1</span> + n);</span><br><span class="line">	num = unique(B + <span class="number">1</span>, B + <span class="number">1</span> + n) - B - <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i) val[i] = lower_bound(B + <span class="number">1</span>, B + num + <span class="number">1</span>, val[i]) - B;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i) f[i] = i, siz[i] = <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= m; ++i) &#123;</span><br><span class="line">		<span class="keyword">int</span> x = read(), y = read();</span><br><span class="line">		g[x].push_back(y);</span><br><span class="line">		g[y].push_back(x);</span><br><span class="line">		link(x, y, <span class="number">0</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i) <span class="keyword">if</span>(!dep[i]) dfs(i, <span class="number">0</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> ONLINE_JUDGE</span></span><br><span class="line">	freopen(<span class="string">"a.in"</span>, <span class="string">"r"</span>, <span class="built_in">stdin</span>);</span><br><span class="line">	freopen(<span class="string">"a.out"</span>, <span class="string">"w"</span>, <span class="built_in">stdout</span>);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line">	<span class="keyword">int</span> t = read();</span><br><span class="line">	<span class="keyword">int</span> n = read(), m = read(), Q = read();</span><br><span class="line">	init(n, m);</span><br><span class="line">	<span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span> (Q--) &#123;</span><br><span class="line">		<span class="keyword">char</span> opt = getchar();</span><br><span class="line">		<span class="keyword">while</span>(opt != <span class="string">'Q'</span> &amp;&amp; opt != <span class="string">'L'</span>) opt = getchar();</span><br><span class="line">		<span class="keyword">if</span> (opt == <span class="string">'Q'</span>) &#123;</span><br><span class="line">			<span class="keyword">int</span> u = read() ^ ans, v = read() ^ ans, k = read() ^ ans;</span><br><span class="line">			<span class="keyword">int</span> lca = LCA(u,v),flca = fa[lca][<span class="number">0</span>];</span><br><span class="line">			ans = Query(root[u],root[v],root[lca],root[flca],<span class="number">1</span>,num,k);</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,ans);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> &#123;</span><br><span class="line">			<span class="keyword">int</span> u = read() ^ ans, v = read() ^ ans;</span><br><span class="line">			link(u, v, <span class="number">1</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
       
     </div>
     
@@ -372,6 +393,14 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/主席树/" rel="tag"># 主席树</a>
+          
+            <a href="/tags/启发式合并/" rel="tag"># 启发式合并</a>
+          
+        </div>
       
 
       
@@ -442,8 +471,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -473,7 +511,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -526,6 +564,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Problem"><span class="nav-number">1.</span> <span class="nav-text">Problem</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#solution"><span class="nav-number">2.</span> <span class="nav-text">solution</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#链上第k小参考以前的博客：戳我"><span class="nav-number">2.0.0.1.</span> <span class="nav-text">链上第k小参考以前的博客：戳我</span></a></li></ol></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#Code"><span class="nav-number">3.</span> <span class="nav-text">Code</span></a></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1077,6 +1131,26 @@
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 
