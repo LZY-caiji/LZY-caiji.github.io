@@ -84,18 +84,18 @@
 
 
 
-<meta name="description" content="Problem题目传送门 给一个序列${ a}$，长度为n. 有m个操作. 1.在序列末尾添加一个x. 2.找到一个$p∈[l,r]$，使得$a[p]⊕a[p+1]⊕…⊕a[N]⊕x$其中N为序列的长度。">
+<meta name="description" content="Problem题目传送门 给一个序列${ a}$，长度为n. 有m个操作. 1.在序列末尾添加一个x. 2.找到一个$p∈[l,r]$，使得$a[p]⊕a[p+1]⊕…⊕a[N]⊕x$最大，其中N为序列的长度。">
 <meta name="keywords" content="可持久化Trie">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LuoguP4735最大异或和（可持久化Trie）">
 <meta property="og:url" content="http://yoursite.com/2019/01/28/LuoguP4735最大异或和/index.html">
 <meta property="og:site_name" content="LZY_caiji">
-<meta property="og:description" content="Problem题目传送门 给一个序列${ a}$，长度为n. 有m个操作. 1.在序列末尾添加一个x. 2.找到一个$p∈[l,r]$，使得$a[p]⊕a[p+1]⊕…⊕a[N]⊕x$其中N为序列的长度。">
+<meta property="og:description" content="Problem题目传送门 给一个序列${ a}$，长度为n. 有m个操作. 1.在序列末尾添加一个x. 2.找到一个$p∈[l,r]$，使得$a[p]⊕a[p+1]⊕…⊕a[N]⊕x$最大，其中N为序列的长度。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-01-28T14:07:41.188Z">
+<meta property="og:updated_time" content="2019-01-29T11:04:29.595Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LuoguP4735最大异或和（可持久化Trie）">
-<meta name="twitter:description" content="Problem题目传送门 给一个序列${ a}$，长度为n. 有m个操作. 1.在序列末尾添加一个x. 2.找到一个$p∈[l,r]$，使得$a[p]⊕a[p+1]⊕…⊕a[N]⊕x$其中N为序列的长度。">
+<meta name="twitter:description" content="Problem题目传送门 给一个序列${ a}$，长度为n. 有m个操作. 1.在序列末尾添加一个x. 2.找到一个$p∈[l,r]$，使得$a[p]⊕a[p+1]⊕…⊕a[N]⊕x$最大，其中N为序列的长度。">
 
 
 
@@ -366,7 +366,7 @@
 <p>给一个序列${ a}$，长度为n.</p>
 <p>有m个操作.</p>
 <p>1.在序列末尾添加一个x.</p>
-<p>2.找到一个$p∈[l,r]$，使得$a[p]⊕a[p+1]⊕…⊕a[N]⊕x$其中N为序列的长度。</p>
+<p>2.找到一个$p∈[l,r]$，使得$a[p]⊕a[p+1]⊕…⊕a[N]⊕x$最大，其中N为序列的长度。</p>
 <a id="more"></a>
 <h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><p>记$all$为$a[1]⊕a[2]⊕a[3]…⊕a[N]$</p>
 <p>询问即为找到一个$p∈[l,r]$ 使得$a[1]⊕a[2]⊕a[3]…⊕a[p]⊕all⊕x$最大。</p>
