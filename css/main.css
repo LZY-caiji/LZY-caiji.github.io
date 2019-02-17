@@ -1823,7 +1823,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #f1261d;
+  background: #fb20d4;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3169,4 +3169,16 @@ input {
   color: #e00;
   border-bottom: none;
   border-bottom: 1px solid #e00;
+}
+.pagination {
+  background: rgba(255,255,255,0.49);
+}
+.header-inner {
+  border-radius: 18px;
+}
+.sidebar {
+  background: rgba(238,238,238,0);
+}
+.sidebar-inner {
+  border-radius: 20px;
 }
