@@ -1823,7 +1823,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ff4d65;
+  background: #fffe9a;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3181,4 +3181,10 @@ input {
 }
 .sidebar-inner {
   border-radius: 20px;
+}
+* {
+  cursor: url("http://images.cnblogs.com/cnblogs_com/zwfymqz/1099678/o_cywl.png"), auto !important;
+}
+:active {
+  cursor: url("http://images.cnblogs.com/cnblogs_com/zwfymqz/1099678/o_cywl.png"), auto !important;
 }
