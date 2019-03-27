@@ -117,7 +117,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="线段树合并,">
 
 
 
@@ -128,14 +128,18 @@
 
 
 
+<meta name="description" content="Problem传送门 给你一张n个点，m条边的图，边有边权，点有点权。 现有Q个询问，每次询问从点x开始，只走边权小于y的边，能走到的点中点权第k大的点">
+<meta name="keywords" content="线段树合并">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[luogu4197]Peaks">
+<meta property="og:title" content="[luogu4197]Peaks(线段树合并)">
 <meta property="og:url" content="https://LZy-caiji.github.io/2019/03/27/luogu4197-Peaks/index.html">
 <meta property="og:site_name" content="LZY_caiji">
+<meta property="og:description" content="Problem传送门 给你一张n个点，m条边的图，边有边权，点有点权。 现有Q个询问，每次询问从点x开始，只走边权小于y的边，能走到的点中点权第k大的点">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-03-27T13:04:15.283Z">
+<meta property="og:updated_time" content="2019-03-27T13:50:55.982Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[luogu4197]Peaks">
+<meta name="twitter:title" content="[luogu4197]Peaks(线段树合并)">
+<meta name="twitter:description" content="Problem传送门 给你一张n个点，m条边的图，边有边权，点有点权。 现有Q个询问，每次询问从点x开始，只走边权小于y的边，能走到的点中点权第k大的点">
 
 
 
@@ -171,7 +175,7 @@
 
 
 
-  <title>[luogu4197]Peaks | LZY_caiji</title>
+  <title>[luogu4197]Peaks(线段树合并) | LZY_caiji</title>
   
 
 
@@ -347,7 +351,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">[luogu4197]Peaks</h1>
+          <h1 class="post-title" itemprop="name headline">[luogu4197]Peaks(线段树合并)</h1>
         
 
         <div class="post-meta">
@@ -402,7 +406,16 @@
       
 
       
-        
+        <h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><p><a href="https://www.luogu.org/problemnew/show/P4197" target="_blank" rel="noopener">传送门</a></p>
+<p>给你一张n个点，m条边的图，边有边权，点有点权。</p>
+<p>现有Q个询问，每次询问从点x开始，只走边权小于y的边，能走到的点中点权第k大的点</p>
+<a id="more"></a>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>这道题没有强制在线，所以直接想了一个简单的离线做法。</p>
+<p>将询问按照y排序，边按照边权排序。</p>
+<p>将边按顺序一条一条加入，合并了两个联通块的同时合并权值线段树</p>
+<p>至于查询，在权值线段树查询全局的k大就可以了。</p>
+<p><del>不知道为什么大家都打的启发式合并+主席树</del></p>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> DEBUG(...) fprintf(stderr, __VA_ARGS__)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> mp make_pair</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> fst first</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> snd second</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt; <span class="function"><span class="keyword">inline</span> <span class="keyword">bool</span> <span class="title">chkmin</span><span class="params">(T &amp;a, <span class="keyword">const</span> T &amp;b)</span> </span>&#123; <span class="keyword">return</span> a &gt; b ? a = b, <span class="number">1</span> : <span class="number">0</span>; &#125;</span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt; <span class="function"><span class="keyword">inline</span> <span class="keyword">bool</span> <span class="title">chkmax</span><span class="params">(T &amp;a, <span class="keyword">const</span> T &amp;b)</span> </span>&#123; <span class="keyword">return</span> a &lt; b ? a = b, <span class="number">1</span> : <span class="number">0</span>; &#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">read</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> res = <span class="number">0</span>, fl = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">char</span> r = getchar();</span><br><span class="line">    <span class="keyword">for</span> (; !<span class="built_in">isdigit</span>(r); r = getchar()) <span class="keyword">if</span>(r == <span class="string">'-'</span>) fl = <span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">for</span> (; <span class="built_in">isdigit</span>(r); r = getchar()) res = (res &lt;&lt; <span class="number">3</span>) + (res &lt;&lt; <span class="number">1</span>) + r - <span class="number">48</span>;</span><br><span class="line">    <span class="keyword">return</span> res * fl;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> LL;</span><br><span class="line"><span class="keyword">typedef</span> pair&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; pii;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> Maxn = <span class="number">5e5</span> + <span class="number">10</span>;</span><br><span class="line"><span class="keyword">namespace</span> SGT&#123;</span><br><span class="line">    <span class="keyword">int</span> tre[Maxn &lt;&lt; <span class="number">4</span>], ls[Maxn &lt;&lt; <span class="number">4</span>], rs[Maxn &lt;&lt; <span class="number">4</span>], cnt;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> mid ((l + r) &gt;&gt; 1)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> sum tre[rs[rt]]</span></span><br><span class="line">    <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">Insert</span><span class="params">(<span class="keyword">int</span> &amp;rt, <span class="keyword">int</span> l, <span class="keyword">int</span> r, <span class="keyword">int</span> pos)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(!rt) rt = ++cnt;</span><br><span class="line">        tre[rt]++;</span><br><span class="line">        <span class="keyword">if</span>(l == r) <span class="keyword">return</span>;</span><br><span class="line">        <span class="keyword">if</span>(mid &gt;= pos) Insert(ls[rt], l, mid, pos);</span><br><span class="line">        <span class="keyword">else</span> Insert(rs[rt], mid + <span class="number">1</span>, r, pos);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">Query</span><span class="params">(<span class="keyword">int</span> rt ,<span class="keyword">int</span> l, <span class="keyword">int</span> r, <span class="keyword">int</span> k)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(tre[rt] &lt; <span class="number">0</span>) <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">if</span>(tre[rt] &lt; k) <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">if</span>(l == r) <span class="keyword">return</span> l;</span><br><span class="line">        <span class="keyword">if</span>(sum &gt;= k) <span class="keyword">return</span> Query(rs[rt], mid + <span class="number">1</span>, r, k);</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> Query(ls[rt], l, mid, k - sum);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">merge</span><span class="params">(<span class="keyword">int</span> u, <span class="keyword">int</span> v)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(!u) <span class="keyword">return</span> v;</span><br><span class="line">        <span class="keyword">if</span>(!v) <span class="keyword">return</span> u;</span><br><span class="line">        tre[u] += tre[v];</span><br><span class="line">        ls[u] = merge(ls[u], ls[v]);</span><br><span class="line">        rs[u] = merge(rs[u], rs[v]);</span><br><span class="line">        <span class="keyword">return</span> u;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">undef</span> mid </span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">undef</span> sum</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span> &#123;</span></span><br><span class="line">    <span class="keyword">int</span> x, y, val, id;</span><br><span class="line">    <span class="keyword">bool</span> <span class="keyword">operator</span> &lt; (<span class="keyword">const</span> node T) <span class="keyword">const</span>&#123; <span class="keyword">return</span> val &lt; T.val;&#125;</span><br><span class="line">&#125;g[Maxn],ASK[Maxn];</span><br><span class="line"><span class="keyword">int</span> ans[Maxn], fa[Maxn], h[Maxn], b[Maxn], root[Maxn], num;</span><br><span class="line"><span class="keyword">bool</span> vis[Maxn];</span><br><span class="line"><span class="built_in">vector</span> &lt;<span class="keyword">int</span>&gt; G[Maxn];</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">get_fa</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123; <span class="keyword">return</span> fa[x] == x ? x : fa[x] = get_fa(fa[x]);&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">link</span><span class="params">(<span class="keyword">int</span> u, <span class="keyword">int</span> v)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(get_fa(u) == get_fa(v)) <span class="keyword">return</span>;</span><br><span class="line">    root[get_fa(v)] = SGT::merge(root[get_fa(u)], root[get_fa(v)]);</span><br><span class="line">    fa[get_fa(u)] = get_fa(v);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> ONLINE_JUDGE</span></span><br><span class="line">    freopen(<span class="string">"a.in"</span>, <span class="string">"r"</span>, <span class="built_in">stdin</span>);</span><br><span class="line">    freopen(<span class="string">"a.out"</span>, <span class="string">"w"</span>, <span class="built_in">stdout</span>);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line">    <span class="keyword">int</span> n = read(), m = read(), Q = read();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i) b[i] = h[i] = read();</span><br><span class="line">    sort(b + <span class="number">1</span>, b + <span class="number">1</span> + n);</span><br><span class="line">    num = unique(b + <span class="number">1</span>, b + <span class="number">1</span> + n) - b - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i) h[i] = lower_bound(b + <span class="number">1</span>, b + <span class="number">1</span> + num, h[i]) - b;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= m; ++i)</span><br><span class="line">        g[i].x = read(), g[i].y = read(), g[i].val = read();</span><br><span class="line">    sort(g + <span class="number">1</span>, g + <span class="number">1</span> + m);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= Q; ++i)</span><br><span class="line">        ASK[i].x = read(), ASK[i].val = read(), ASK[i].y = read(),ASK[i].id = i;</span><br><span class="line">    sort(ASK + <span class="number">1</span>, ASK + <span class="number">1</span> + Q);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i) fa[i] = i;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i)</span><br><span class="line">        SGT::Insert(root[i], <span class="number">1</span>, num, h[i]);</span><br><span class="line">    <span class="keyword">int</span> top = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= m; ++i)&#123;</span><br><span class="line">        <span class="keyword">for</span>(; ASK[top].val &lt; g[i].val &amp;&amp; top &lt;= Q; ++top)&#123;</span><br><span class="line">            ans[ASK[top].id] = SGT::Query(root[get_fa(ASK[top].x)], <span class="number">1</span>, num, ASK[top].y);</span><br><span class="line">            vis[ASK[top].id] = <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        link(g[i].x, g[i].y);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = top; i &lt;= Q; ++i)</span><br><span class="line">        ans[ASK[i].id] = SGT::Query(root[get_fa(ASK[i].x)], <span class="number">1</span>, num, ASK[i].y);</span><br><span class="line">    b[<span class="number">0</span>] = <span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= Q; ++i)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,b[max(ans[i], <span class="number">0</span>)]);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -416,6 +429,12 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/线段树合并/" rel="tag">#线段树合并</a>
+          
+        </div>
       
 
       
@@ -486,8 +505,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -517,7 +545,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-count">20</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -574,6 +602,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Problem"><span class="nav-number">1.</span> <span class="nav-text">Problem</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution"><span class="nav-number">2.</span> <span class="nav-text">Solution</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Code"><span class="nav-number">3.</span> <span class="nav-text">Code</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

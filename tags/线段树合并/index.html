@@ -117,7 +117,7 @@
 
 
 
-  <meta name="keywords" content="线段树,">
+  <meta name="keywords" content="Hexo, NexT">
 
 
 
@@ -128,18 +128,13 @@
 
 
 
-<meta name="description" content="problem给一个长度为n的序列。 支持两个操作 1.给区间[L，R]第i项加上斐波那契数列的第i项。 2.查询区间[L，R]的异或和。 $n,m&amp;lt;3e5$">
-<meta name="keywords" content="线段树">
-<meta property="og:type" content="article">
-<meta property="og:title" content="2019-1-23 尔">
-<meta property="og:url" content="https://LZy-caiji.github.io/2019/01/25/2019-1-23-1/index.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="LZY_caiji">
+<meta property="og:url" content="https://LZy-caiji.github.io/tags/线段树合并/index.html">
 <meta property="og:site_name" content="LZY_caiji">
-<meta property="og:description" content="problem给一个长度为n的序列。 支持两个操作 1.给区间[L，R]第i项加上斐波那契数列的第i项。 2.查询区间[L，R]的异或和。 $n,m&amp;lt;3e5$">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-02-26T10:25:54.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="2019-1-23 尔">
-<meta name="twitter:description" content="problem给一个长度为n的序列。 支持两个操作 1.给区间[L，R]第i项加上斐波那契数列的第i项。 2.查询区间[L，R]的异或和。 $n,m&amp;lt;3e5$">
+<meta name="twitter:title" content="LZY_caiji">
 
 
 
@@ -169,13 +164,13 @@
 
 
 
-  <link rel="canonical" href="https://LZy-caiji.github.io/2019/01/25/2019-1-23-1/">
+  <link rel="canonical" href="https://LZy-caiji.github.io/tags/线段树合并/">
 
 
 
 
 
-  <title>2019-1-23 尔 | LZY_caiji</title>
+  <title>Tag: 线段树合并 | LZY_caiji</title>
   
 
 
@@ -194,7 +189,7 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <div class="container sidebar-position-left ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
@@ -320,170 +315,52 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-expand">
-    
+  
+  
+  
+  <div class="post-block tag">
 
-  
+    <div id="posts" class="posts-collapse">
+      <div class="collection-title">
+        <h1>线段树合并<small>Tag</small>
+        </h1>
+      </div>
 
-  
-  
-  
+      
+        
 
   <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://LZy-caiji.github.io/2019/01/25/2019-1-23-1/">
+    <header class="post-header">
 
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LZY_caiji">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="LZY_caiji">
-    </span>
-
-    
-      <header class="post-header">
-
+      <h2 class="post-title">
         
-        
-          <h1 class="post-title" itemprop="name headline">2019-1-23 尔</h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
+            <a class="post-title-link" href="/2019/03/27/luogu4197-Peaks/" itemprop="url">
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span itemprop="name">[luogu4197]Peaks(线段树合并)</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-25T21:01:30+08:00">
-                2019-01-25
-              </time>
-            
+            </a>
+        
+      </h2>
 
-            
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated" datetime="2019-03-27T21:04:15+08:00" content="2019-03-27">
+          03-27
+        </time>
+      </div>
 
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-            <span class="post-meta-divider">|</span>
-            <span class="page-pv"><i class="fa fa-file-o"></i>
-            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
-            </span>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        <h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a>problem</h2><p>给一个长度为n的序列。</p>
-<p>支持两个操作</p>
-<p>1.给区间[L，R]第i项加上斐波那契数列的第i项。</p>
-<p>2.查询区间[L，R]的异或和。</p>
-<p>$n,m&lt;3e5$</p>
-<a id="more"></a>
-<h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><p> 这一题其实要考虑Fibonacci数列的两个性质:</p>
-<p> (i) $\sum_{i=1}^{n} fib(i)=fib(n+2)−1$</p>
-<p>(ii)令$S<em>i=S</em>{i−1}+S_{i−2}$, </p>
-<p>其中$S_1=a,S_2=b$</p>
-<p> 那么$S_i=bFib(i−1)+aFib(i−2)$</p>
-<p>还有一个推导式$\sum_{i=1}^{n} S(i)=S(n+2)−S_2$</p>
-<p> 那么就很好做了， 在线段树中， 我们要只要记数列的前两项就可以方便的对数列进行求和。</p>
-<p>然后用一个标记永久化的线段树做一下就可以了。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> fst first</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> snd second</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> squ(x) ((LL)(x) * (x))</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> debug(...) fprintf(stderr, __VA_ARGS__)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> LL;</span><br><span class="line"><span class="keyword">typedef</span> pair&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; pii;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">read</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> sum = <span class="number">0</span>, fg = <span class="number">1</span>; <span class="keyword">char</span> c = getchar();</span><br><span class="line">	<span class="keyword">for</span> (; !<span class="built_in">isdigit</span>(c); c = getchar()) <span class="keyword">if</span> (c == <span class="string">'-'</span>) fg = <span class="number">-1</span>;</span><br><span class="line">	<span class="keyword">for</span> (; <span class="built_in">isdigit</span>(c); c = getchar()) sum = (sum &lt;&lt; <span class="number">3</span>) + (sum &lt;&lt; <span class="number">1</span>) + (c ^ <span class="number">0x30</span>);</span><br><span class="line">	<span class="keyword">return</span> fg * sum;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> Maxn = <span class="number">3e5</span> + <span class="number">10</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> mod = <span class="number">1e9</span> + <span class="number">7</span>;</span><br><span class="line"><span class="keyword">bool</span> ok;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> A,<span class="keyword">int</span> B)</span></span>&#123; </span><br><span class="line">	<span class="keyword">if</span>(A + B &gt;= mod) <span class="keyword">return</span> A + B - mod;</span><br><span class="line">	<span class="keyword">if</span>(A + B &lt; <span class="number">0</span>) <span class="keyword">return</span> A + B + mod;</span><br><span class="line">	<span class="keyword">return</span> A + B;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">STR</span>&#123;</span></span><br><span class="line">	<span class="keyword">int</span> s1, s2, len, sum;</span><br><span class="line">	STR <span class="keyword">operator</span> + (<span class="keyword">const</span> STR &amp;t) <span class="keyword">const</span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(len == <span class="number">1</span>) <span class="keyword">return</span> (STR)&#123;add(s1 , t.s1), s2, len, sum&#125;;</span><br><span class="line">		<span class="keyword">return</span> (STR)&#123;add(s1 , t.s1), add(s2 , t.s2), len, sum&#125;;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;tre[Maxn &lt;&lt; <span class="number">2</span>];</span><br><span class="line"><span class="keyword">int</span> fib[Maxn &lt;&lt; <span class="number">2</span>], sum[Maxn], ls[Maxn &lt;&lt; <span class="number">2</span>], rs[Maxn &lt;&lt; <span class="number">2</span>], cnt;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">Sum</span><span class="params">(<span class="keyword">int</span> l ,<span class="keyword">int</span> r)</span> </span>&#123; <span class="keyword">return</span> add(sum[r], mod - sum[l - <span class="number">1</span>]);&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">Fib</span><span class="params">(<span class="keyword">int</span> l,<span class="keyword">int</span> r)</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> add(fib[r + <span class="number">2</span>], mod - fib[l + <span class="number">1</span>]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">(<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">	fib[<span class="number">1</span>] = <span class="number">1</span>;fib[<span class="number">2</span>] = <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">3</span>; i &lt;= (n &lt;&lt; <span class="number">1</span>); ++i) fib[i] = add(fib[i - <span class="number">1</span>], fib[i - <span class="number">2</span>]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">calc</span><span class="params">(STR &amp;t,<span class="keyword">int</span> L, <span class="keyword">int</span> R)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(t.s1 == <span class="number">0</span> &amp;&amp; t.s2 == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">if</span>(L &gt; R) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">if</span>(L == R) <span class="keyword">return</span> t.s1;</span><br><span class="line">	<span class="keyword">if</span>(L + <span class="number">1</span> == R) <span class="keyword">return</span> add(t.s1, t.s2);</span><br><span class="line">	<span class="keyword">return</span> add(add(<span class="number">1l</span>l * t.s2 * fib[R - L + <span class="number">2</span>] % mod ,mod - t.s2), <span class="number">1l</span>l * t.s1 * fib[R - L + <span class="number">1</span>] % mod);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">Sib</span><span class="params">(STR &amp;t,<span class="keyword">int</span> L, <span class="keyword">int</span> R, <span class="keyword">int</span> B)</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> S_R = calc(t, B, R);</span><br><span class="line">	<span class="keyword">int</span> S_L = calc(t, B, L - <span class="number">1</span>);</span><br><span class="line">	<span class="keyword">return</span> S_R - S_L;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">modify</span><span class="params">(<span class="keyword">int</span> &amp;rt, <span class="keyword">int</span> l, <span class="keyword">int</span> r, <span class="keyword">int</span> L, <span class="keyword">int</span> R, <span class="keyword">int</span> B)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(!rt) rt = ++cnt;</span><br><span class="line">	<span class="keyword">if</span>(l == L &amp;&amp; r == R) &#123;</span><br><span class="line">		tre[rt].len = r - l + <span class="number">1</span>;</span><br><span class="line">		tre[rt] = tre[rt] + (STR)&#123;fib[B],fib[B + <span class="number">1</span>],tre[rt].len,tre[rt].sum&#125;;</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> mid = l + r &gt;&gt; <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">if</span>(mid &gt;= R) modify(ls[rt], l, mid, L, R, B);</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span>(mid &lt; L) modify(rs[rt], mid + <span class="number">1</span>, r, L, R, B);</span><br><span class="line">	<span class="keyword">else</span> modify(ls[rt], l, mid, L, mid, B),modify(rs[rt], mid + <span class="number">1</span>, r, mid + <span class="number">1</span>, R, B + mid - L + <span class="number">1</span>);</span><br><span class="line">	tre[rt].sum = add(tre[rt].sum, Fib(B, R - L + B));</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">Query</span><span class="params">(<span class="keyword">int</span> rt,<span class="keyword">int</span> l,<span class="keyword">int</span> r,<span class="keyword">int</span> L,<span class="keyword">int</span> R)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(!rt) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">int</span> cur = Sib(tre[rt],L,R,l);</span><br><span class="line">	<span class="keyword">if</span>(l == L &amp;&amp; r == R) <span class="keyword">return</span> add(tre[rt].sum, cur);</span><br><span class="line">	<span class="keyword">int</span> mid = l + r &gt;&gt; <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">if</span>(mid &gt;= R) <span class="keyword">return</span> add(Query(ls[rt], l, mid, L, R), cur);</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span>(mid &lt; L) <span class="keyword">return</span> add(Query(rs[rt], mid + <span class="number">1</span>, r, L, R), cur);</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">return</span> add(add(Query(ls[rt], l, mid, L, mid), Query(rs[rt], mid + <span class="number">1</span>, r, mid + <span class="number">1</span>, R)), cur);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	freopen(<span class="string">"you.in"</span>, <span class="string">"r"</span>, <span class="built_in">stdin</span>);</span><br><span class="line">	freopen(<span class="string">"you.out"</span>, <span class="string">"w"</span>, <span class="built_in">stdout</span>);</span><br><span class="line">	<span class="keyword">int</span> n = read(), m = read();</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i)</span><br><span class="line">		sum[i] = add(sum[i - <span class="number">1</span>], read() % mod);</span><br><span class="line">	init(n);</span><br><span class="line">	<span class="keyword">int</span> opt, l, r;</span><br><span class="line">	<span class="keyword">int</span> root = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span>(m--)&#123;</span><br><span class="line">		opt = read() - <span class="number">1</span>, l = read(), r = read();</span><br><span class="line">		<span class="keyword">if</span>(!opt) &#123;</span><br><span class="line">			modify(root, <span class="number">1</span>, n, l, r, <span class="number">1</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,add(Sum(l,r), Query(<span class="number">1</span>, <span class="number">1</span>, n, l, r)));</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/线段树/" rel="tag">#线段树</a>
-          
-        </div>
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2019/01/25/UOJ最强跳蚤Solution/" rel="next" title="UOJ最强跳蚤">
-                <i class="fa fa-chevron-left"></i> UOJ最强跳蚤
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/01/26/2019-1-26-对联/" rel="prev" title="2019-1-26-对联">
-                2019-1-26-对联 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </div>
-  
-  
-  
+    </header>
   </article>
 
 
-
-    <div class="post-spread">
       
     </div>
+
   </div>
+  
+  
+  
+
+  
 
 
           </div>
@@ -491,10 +368,6 @@
 
 
           
-
-  
-
-
 
         </div>
         
@@ -515,17 +388,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -612,22 +476,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#problem"><span class="nav-number">1.</span> <span class="nav-text">problem</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#solution"><span class="nav-number">2.</span> <span class="nav-text">solution</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
@@ -808,10 +656,6 @@
 
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
-
-
 
   
 
