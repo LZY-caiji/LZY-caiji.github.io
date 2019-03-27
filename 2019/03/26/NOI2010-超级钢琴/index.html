@@ -136,7 +136,7 @@
 <meta property="og:site_name" content="LZY_caiji">
 <meta property="og:description" content="Problem给一个长度为$n$的序列$A$，定义子区间价值$W{[l,r]}=\sum{i = l}^{i \leq r}A_i$ 要求选出$k$个互不相同的子区间，使选出的区间价值和最大。 Solution首先，为了快速求出一段区间的和，我们预处理前缀和 然后就是一个很巧妙的技巧： 定义$Max_{(o,l,r)}$为以$o$为左端点，长度在区间$[l,r]$以内的权值和最大的连续区间。 很显">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-03-27T13:29:15.265Z">
+<meta property="og:updated_time" content="2019-03-27T13:33:10.387Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[NOI2010]超级钢琴">
 <meta name="twitter:description" content="Problem给一个长度为$n$的序列$A$，定义子区间价值$W{[l,r]}=\sum{i = l}^{i \leq r}A_i$ 要求选出$k$个互不相同的子区间，使选出的区间价值和最大。 Solution首先，为了快速求出一段区间的和，我们预处理前缀和 然后就是一个很巧妙的技巧： 定义$Max_{(o,l,r)}$为以$o$为左端点，长度在区间$[l,r]$以内的权值和最大的连续区间。 很显">
@@ -1186,6 +1186,26 @@
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 
