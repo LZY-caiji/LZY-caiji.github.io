@@ -128,18 +128,18 @@
 
 
 
-<meta name="description" content="Problem传送门 给你一张n个点，m条边的图，边有边权，点有点权。 现有Q个询问，每次询问从点x开始，只走边权小于y的边，能走到的点中点权第k大的点">
+<meta name="description" content="Problem传送门 给你一张$n$个点，$m$条边的图，边有边权，点有点权。 现有$Q$个询问，每次询问从点$x$开始，只走边权小于$y$的边，能走到的点中点权第$k$大的点">
 <meta name="keywords" content="线段树合并">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[luogu4197]Peaks(线段树合并)">
 <meta property="og:url" content="https://LZy-caiji.github.io/2019/03/27/luogu4197-Peaks/index.html">
 <meta property="og:site_name" content="LZY_caiji">
-<meta property="og:description" content="Problem传送门 给你一张n个点，m条边的图，边有边权，点有点权。 现有Q个询问，每次询问从点x开始，只走边权小于y的边，能走到的点中点权第k大的点">
+<meta property="og:description" content="Problem传送门 给你一张$n$个点，$m$条边的图，边有边权，点有点权。 现有$Q$个询问，每次询问从点$x$开始，只走边权小于$y$的边，能走到的点中点权第$k$大的点">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-03-27T13:50:55.982Z">
+<meta property="og:updated_time" content="2019-03-27T13:54:56.637Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[luogu4197]Peaks(线段树合并)">
-<meta name="twitter:description" content="Problem传送门 给你一张n个点，m条边的图，边有边权，点有点权。 现有Q个询问，每次询问从点x开始，只走边权小于y的边，能走到的点中点权第k大的点">
+<meta name="twitter:description" content="Problem传送门 给你一张$n$个点，$m$条边的图，边有边权，点有点权。 现有$Q$个询问，每次询问从点$x$开始，只走边权小于$y$的边，能走到的点中点权第$k$大的点">
 
 
 
@@ -407,8 +407,8 @@
 
       
         <h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><p><a href="https://www.luogu.org/problemnew/show/P4197" target="_blank" rel="noopener">传送门</a></p>
-<p>给你一张n个点，m条边的图，边有边权，点有点权。</p>
-<p>现有Q个询问，每次询问从点x开始，只走边权小于y的边，能走到的点中点权第k大的点</p>
+<p>给你一张$n$个点，$m$条边的图，边有边权，点有点权。</p>
+<p>现有$Q$个询问，每次询问从点$x$开始，只走边权小于$y$的边，能走到的点中点权第$k$大的点</p>
 <a id="more"></a>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>这道题没有强制在线，所以直接想了一个简单的离线做法。</p>
 <p>将询问按照y排序，边按照边权排序。</p>
@@ -1176,6 +1176,26 @@
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 
