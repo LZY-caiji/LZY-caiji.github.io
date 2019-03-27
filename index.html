@@ -330,6 +330,259 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://LZy-caiji.github.io/2019/03/27/luogu4197-Peaks/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LZY_caiji">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LZY_caiji">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/27/luogu4197-Peaks/" itemprop="url">[luogu4197]Peaks</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-27T21:04:15+08:00">
+                2019-03-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://LZy-caiji.github.io/2019/03/26/NOI2010-超级钢琴/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LZY_caiji">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LZY_caiji">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/26/NOI2010-超级钢琴/" itemprop="url">[NOI2010]超级钢琴</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-26T21:03:29+08:00">
+                2019-03-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><p>给一个长度为$n$的序列$A$，定义子区间价值$W<em>{[l,r]}=\sum</em>{i = l}^{i \leq r}A_i$</p>
+<p>要求选出$k$个互不相同的子区间，使选出的区间价值和最大。</p>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>首先，为了快速求出一段区间的和，我们预处理前缀和</p>
+<p>然后就是一个很巧妙的技巧：</p>
+<p>定义$Max_{(o,l,r)}$为以$o$为左端点，长度在区间$[l,r]$以内的权值和最大的连续区间。</p>
+<p>很显然$Max_{(o,l,r)}=max(sum(t)-sum(o - 1), t∈[l,r])$</p>
+<p>其中$sum(x) = \sum_{i = 1}^{i \leq x}A[i]$</p>
+<p>因为固定了o点，$sum(o - 1)$一定是确定的，所以我们相当于要求$sum(t)$在区间$[l,r]$中的最大值。</p>
+<p>不难想到用线段树维护，但是因为没有修改操作，可以直接用$RMQ$</p>
+<p>然后就是贪心了，维护一个大根堆，每次询问堆顶元素的权值，在将它从堆中删除……</p>
+<p>然后就愉快的$WA$成$SB$了……</p>
+<p>分析错误原因，是我们没有考虑以$o$为左端点的区间有可能有不止一个区间可以为答案做出贡献……</p>
+<p>所以我们在删除对顶元素时，还需要将剩余部分插入堆</p>
+<p>假设当前堆顶的元素为$Max_{(o,l,r)}$且区间长度为$t$时，取到最大值</p>
+<p>在删除后我们将$Max<em>{(o,l,t - 1)}$与$Max</em>{(o,t + 1, r)}$扔回堆中即可</p>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> DEBUG(...) fprintf(stderr, __VA_ARGS__)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> mp make_pair</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> fst first</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> snd second</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt; <span class="function"><span class="keyword">inline</span> <span class="keyword">bool</span> <span class="title">chkmin</span><span class="params">(T &amp;a, <span class="keyword">const</span> T &amp;b)</span> </span>&#123; <span class="keyword">return</span> a &gt; b ? a = b, <span class="number">1</span> : <span class="number">0</span>; &#125;</span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt; <span class="function"><span class="keyword">inline</span> <span class="keyword">bool</span> <span class="title">chkmax</span><span class="params">(T &amp;a, <span class="keyword">const</span> T &amp;b)</span> </span>&#123; <span class="keyword">return</span> a &lt; b ? a = b, <span class="number">1</span> : <span class="number">0</span>; &#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">read</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> res = <span class="number">0</span>, fl = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">char</span> r = getchar();</span><br><span class="line">    <span class="keyword">for</span> (; !<span class="built_in">isdigit</span>(r); r = getchar()) <span class="keyword">if</span>(r == <span class="string">'-'</span>) fl = <span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">for</span> (; <span class="built_in">isdigit</span>(r); r = getchar()) res = (res &lt;&lt; <span class="number">3</span>) + (res &lt;&lt; <span class="number">1</span>) + r - <span class="number">48</span>;</span><br><span class="line">    <span class="keyword">return</span> res * fl;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> LL;</span><br><span class="line"><span class="keyword">typedef</span> pair&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; pii;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> Maxn = <span class="number">2e6</span> + <span class="number">10</span>;</span><br><span class="line"><span class="keyword">int</span> n, L, R, k, a[Maxn], ok;</span><br><span class="line"><span class="keyword">namespace</span> RMQ&#123;</span><br><span class="line">    pii RMQ[Maxn][<span class="number">21</span>];</span><br><span class="line">   	<span class="keyword">int</span> Log[Maxn], Pow[<span class="number">30</span>];</span><br><span class="line">    <span class="function"><span class="keyword">inline</span> pii <span class="title">Query</span><span class="params">(<span class="keyword">int</span> l, <span class="keyword">int</span> r)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> max(RMQ[l][Log[r - l + <span class="number">1</span>]], RMQ[r - Pow[Log[r - l + <span class="number">1</span>]] + <span class="number">1</span>][Log[r - l + <span class="number">1</span>]]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span> num = <span class="number">1</span>;</span><br><span class="line">        Log[<span class="number">0</span>] = <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i)&#123;</span><br><span class="line">            <span class="keyword">if</span>(i == num) Log[i] = <span class="number">1</span>, num = num &lt;&lt; <span class="number">1</span>;</span><br><span class="line">            Log[i] += Log[i - <span class="number">1</span>];</span><br><span class="line">            RMQ[i][<span class="number">0</span>] = mp(a[i], i);</span><br><span class="line">        &#125;</span><br><span class="line">        Pow[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">20</span>; ++i) Pow[i] = Pow[i - <span class="number">1</span>] &lt;&lt; <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= Log[n]; ++j)</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i)</span><br><span class="line">                RMQ[i][j] = max(RMQ[i][j - <span class="number">1</span>], RMQ[i + Pow[j - <span class="number">1</span>]][j - <span class="number">1</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span>&#123;</span></span><br><span class="line">    <span class="keyword">int</span> o, l, r, val;</span><br><span class="line">    <span class="keyword">bool</span> <span class="keyword">operator</span> &lt; (<span class="keyword">const</span> node &amp; T) <span class="keyword">const</span>&#123; <span class="keyword">return</span> val &lt; T.val;&#125;</span><br><span class="line">    <span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">Query</span><span class="params">()</span></span>&#123; <span class="keyword">return</span> RMQ::Query(o + l - <span class="number">1</span>, o + r - <span class="number">1</span>).fst - a[o - <span class="number">1</span>];&#125;</span><br><span class="line">    <span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">Where</span><span class="params">()</span></span>&#123; <span class="keyword">return</span> RMQ::Query(o + l - <span class="number">1</span>, o + r - <span class="number">1</span>).snd - o + <span class="number">1</span>;&#125;</span><br><span class="line">&#125;;</span><br><span class="line">priority_queue&lt;node&gt; Q;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> ONLINE_JUDGE</span></span><br><span class="line">    freopen(<span class="string">"a.in"</span>, <span class="string">"r"</span>, <span class="built_in">stdin</span>);</span><br><span class="line">    freopen(<span class="string">"a.out"</span>, <span class="string">"w"</span>, <span class="built_in">stdout</span>);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line">    n = read(), k = read(), L = read(), R = read();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i) a[i] = read() + a[i - <span class="number">1</span>];</span><br><span class="line">    RMQ::init();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n - L + <span class="number">1</span>; ++i)&#123;</span><br><span class="line">        node now = (node)&#123;i, L, min(R, n - i + <span class="number">1</span>), <span class="number">0</span>&#125;;</span><br><span class="line">        now.val = now.Query();</span><br><span class="line">        Q.push(now);</span><br><span class="line">    &#125;</span><br><span class="line">    LL ans = <span class="number">0</span>;</span><br><span class="line">    node nxt;</span><br><span class="line">    <span class="keyword">while</span>(k--)&#123;</span><br><span class="line">        node now = Q.top();</span><br><span class="line">        ans += now.val;</span><br><span class="line">        Q.pop();</span><br><span class="line">        <span class="keyword">if</span>(now.Where() &gt; now.l)</span><br><span class="line">            nxt = (node)&#123;now.o, now.l, now.Where() - <span class="number">1</span>, <span class="number">0</span>&#125;, nxt.val = nxt.Query(), Q.push(nxt);</span><br><span class="line">        <span class="keyword">if</span>(now.Where() &lt; now.r)</span><br><span class="line">            nxt = (node)&#123;now.o, now.Where() + <span class="number">1</span>, now.r, <span class="number">0</span>&#125;, nxt.val = nxt.Query(), Q.push(nxt);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%lld\n"</span>, ans);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://LZy-caiji.github.io/2019/03/26/陌上花开/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -1333,264 +1586,6 @@ gcd(a, b) = a \oplus b \\
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://LZy-caiji.github.io/2019/01/28/LuoguP4735最大异或和/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LZY_caiji">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="LZY_caiji">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/01/28/LuoguP4735最大异或和/" itemprop="url">LuoguP4735最大异或和（可持久化Trie）</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-28T21:40:37+08:00">
-                2019-01-28
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h1><p><a href="https://www.luogu.org/problemnew/show/P4735" target="_blank" rel="noopener">题目传送门</a></p>
-<p>给一个序列${ a}$，长度为n.</p>
-<p>有m个操作.</p>
-<p>1.在序列末尾添加一个x.</p>
-<p>2.找到一个$p∈[l,r]$，使得$a[p]⊕a[p+1]⊕…⊕a[N]⊕x$最大，其中N为序列的长度。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/01/28/LuoguP4735最大异或和/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://LZy-caiji.github.io/2019/01/28/Luogu3302森林/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LZY_caiji">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="LZY_caiji">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/01/28/Luogu3302森林/" itemprop="url">Luogu3302森林</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-28T17:04:58+08:00">
-                2019-01-28
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h1><p><a href="https://www.luogu.org/problemnew/show/P3302" target="_blank" rel="noopener">题目传送门</a></p>
-<p>给你一片森林。</p>
-<p>支持两个操作。</p>
-<p>1,查询x，y路径中点权的k小。</p>
-<p>2,连接x，y.保证连接之后仍然是一片森林。</p>
-<p>询问强制在线。</p>
-<p>$n,m,t&lt;8×10^4$</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/01/28/Luogu3302森林/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1643,7 +1638,7 @@ gcd(a, b) = a \oplus b \\
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1656,7 +1651,7 @@ gcd(a, b) = a \oplus b \\
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -1685,11 +1680,11 @@ gcd(a, b) = a \oplus b \\
                   </li>
                 
                   <li class="links-of-blogroll-item">
-                    <a href="https://gongchen618.github.io" title="GCCCCCCC(巨佬)" target="_blank">GCCCCCCC(巨佬)</a>
+                    <a href="https://gccccccc.gitee.io/blog/" title="GCCCCCCC(巨佬)" target="_blank">GCCCCCCC(巨佬)</a>
                   </li>
                 
                   <li class="links-of-blogroll-item">
-                    <a href="https://www.luoshuitianyi.tk" title="Caosiyu(大师)" target="_blank">Caosiyu(大师)</a>
+                    <a href="http://www.cnblogs.com/luoshuitianyi" title="Caosiyu(大师)" target="_blank">Caosiyu(大师)</a>
                   </li>
                 
                   <li class="links-of-blogroll-item">
@@ -1698,6 +1693,10 @@ gcd(a, b) = a \oplus b \\
                 
                   <li class="links-of-blogroll-item">
                     <a href="https://www.cnblogs.com/xunzhen" title="xunzhen(真真)" target="_blank">xunzhen(真真)</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.cnblogs.com/LZYcaiji/" title="某caiji的博客园" target="_blank">某caiji的博客园</a>
                   </li>
                 
               </ul>
